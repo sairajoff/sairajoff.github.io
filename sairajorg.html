@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Translucent Title Bar with Blurred Dual-Color Background</title>
+  <style>
+    /* Styles for the blurred background */
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #a3ffab, #ffd6a3, #e6e6fa); /* Light green, peach light, and lavender gradient */
+      font-family: Arial, sans-serif; /* Changed font for better readability */
+    }
+
+    /* Blurred background effect */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      filter: blur(8px); /* Adjust the blur strength as needed */
+      z-index: -1;
+    }
+
+    /* Styles for the title bar */
+    .title-bar {
+      background-color: rgba(255, 255, 255, 0.7); /* Translucent white */
+      width: auto; /* Adjusted to fit content */
+      height: 60px; /* Increased height */
+      display: flex;
+      justify-content: space-between; /* Changed to space-between to distribute buttons */
+      align-items: center;
+      position: fixed;
+      top: 20px; /* Moved down 20px */
+      left: 50%;
+      transform: translateX(-50%); /* Centered the title bar */
+      z-index: 999;
+      border-top-left-radius: 15px; /* Rounded top left corner */
+      border-top-right-radius: 15px; /* Rounded top right corner */
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      padding: 0 20px; /* Added padding to space buttons */
+    }
+
+    /* Styles for the buttons */
+    .title-bar button {
+      padding: 10px 20px; /* Increased button padding */
+      font-size: 16px; /* Increased font size */
+      margin-right: 10px; /* Added margin between buttons */
+    }
+
+    /* Styles for the big text */
+    .big-text {
+      text-align: center;
+      font-size: 17vw; /* Adjusted font size for responsiveness */
+      color: #006400; /* Dark green color */
+      margin-top: 150px; /* Adjusted for space below title bar */
+    }
+
+    /* Container for personal and professional life */
+    .container {
+      padding-top: 100px; /* Adjusted for space below title bar */
+      padding-bottom: 20px; /* Added padding for spacing at the bottom */
+      font-size: 5vw;
+      text-align: center;
+      margin-top: 30px; /* Added margin at the top for spacing */
+    }
+
+    /* Styles for personal and professional life sections */
+    .life-section {
+      width: 70%; /* Adjusted width for responsiveness */
+      max-width: 900px; /* Added max-width for better scaling on larger screens */
+      margin: 20px auto; /* Adjusted for responsiveness */
+      padding: 20px; /* Added padding for better spacing */
+      border-radius: 15px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+      margin-top: 20px; /* Added margin to create gap between sections */
+      border-bottom-left-radius: 15px; /* Rounded bottom left corner */
+      border-bottom-right-radius: 15px; /* Rounded bottom right corner */
+    }
+
+    /* Styles for the first section */
+    #personal-life-section {
+      background-color: lavender; /* Light lavender color */
+    }
+
+    /* Styles for the second section */
+    #professional-life-section {
+      background-color: lightblue; /* Light blue color */
+    }
+
+    /* Styles for the connect section */
+    .connect-section {
+      margin-top: 50px; /* Added margin to space out from previous content */
+      text-align: center; /* Center the text */
+    }
+
+    /* Styles for the image sections */
+    .image-section {
+      width: 33.33%; /* Each section takes up one-third of the container */
+      margin: 0 auto; /* Center the sections horizontally */
+      box-sizing: border-box; /* Include padding and border in the element's total width and height */
+      float: left; /* Float the sections to align them horizontally */
+      text-align: center; /* Center the images horizontally */
+    }
+
+    .image-section img {
+      width: 50px; /* Make the images smaller */
+      height: auto; /* Maintain aspect ratio */
+      display: block; /* Remove any default inline spacing */
+      border: 1px solid #ccc; /* Add a border for visual separation */
+      margin: 0 auto; /* Center the images horizontally */
+    }
+
+    .image-section a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+<div class="title-bar">
+  <button onclick="scrollToPersonalLife()">About</button>
+  <button onclick="scrollToBottom()">Contact</button>
+</div>
+
+<h1 class="big-text">
+  Hi, I am <br>
+  Sairaj.
+</h1>
+
+<div class="container">
+  <p>
+    Here you will find more about myself.
+  </p>
+  <br>
+  <p>
+    You are at my about section.
+  </p>
+  <br>
+
+  <div class="life-section" id="personal-life-section">
+    <h2>Personal Life</h2>
+    <p>
+      Hey there, I'm Sairaj Patil, hailing from the vibrant city of Belgaum, nestled in the heart of Karnataka. Currently, I'm on the journey of self-discovery as a student, exploring the vast realms of knowledge and experience.
+    </p>
+    <p>
+      When I'm not buried in books, you'll often find me on the basketball court, where my passion for the game truly shines. There's something about the rhythm of dribbling and the thrill of making that perfect shot that captivates me every time.
+    </p>
+    <p>
+      Aside from sports, I have a knack for computers and enjoy diving into the world of technology. Whether it's troubleshooting a technical glitch or unleashing my creativity through coding, I find solace in the digital realm.
+    </p>
+    <p>
+      I'll admit, I'm a bit of a jack-of-all-trades. While I may not be a master in any one thing, I pride myself on my ability to adapt and think creatively across various domains. They say variety is the spice of life, right?
+    </p>
+    <p>
+      As for the future, I'm still figuring things out. But I believe in the power of manifestation and trust that my path will reveal itself in due time. In the meantime, I find joy in lending a helping hand whenever I can, because making a positive impact on others is what truly matters.
+    </p>
+    <p>
+      Now, here's a fun fact about me: I'm perpetually caught in the whirlwind of confusion, much to the amusement of those around me. But hey, who said clarity was overrated?
+    </p>
+    <p>
+      So, that's a bit about me. I'm looking forward to getting to know you better and embarking on this journey called life together!
+    </p>
+  </div>
+
+  <div class="life-section" id="professional-life-section">
+    <h2>Professional Life</h2>
+    <p>
+      I am a recent graduate from the esteemed St. Xavier's High School right here in Belgaum. It's been quite the journey, and I'm thrilled to share a bit about my time there.
+    </p>
+    <p>
+      During my tenure at St. Xavier's, I not only excelled academically but also found my passion on the basketball court. As a member of the school's basketball team, I had the honor of representing our beloved institution at the state level. Together, with my teammates, we clinched the second position, a testament to our hard work and dedication.
+    </p>
+    <p>
+      Beyond sports, St. Xavier's instilled in me the values of leadership and service. I actively participated in various extracurricular activities, honing my skills both on and off the court. It's here that I discovered the joy of collaboration and the power of teamwork, traits that continue to guide me in my academic and personal pursuits.
+    </p>
+    <p>
+      Now, as I embark on the next chapter of my academic journey, I carry with me the lessons learned and memories cherished from my time at St. Xavier's. Armed with a solid foundation and a thirst for knowledge, I'm excited to see where this path takes me.
+    </p>
+    <p>
+      So here's to new beginnings and endless possibilities. I can't wait to see what the future holds, and I'm grateful to have you all along for the ride.
+    </p>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  <div class="connect-section">
+    <h1>You can connect with me:</h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+    <div class="image-section">
+      <a href="https://www.instagram.com/sairaj_p_0/"><img src="https://static-00.iconduck.com/assets.00/instagram-icon-1024x1024-8qt57uwd.png" alt="Instagram Logo"></a>
+    </div>
+
+    <div class="image-section">
+      <a href="https://twitter.com/_SairajPatil"><img src="https://cdn.icon-icons.com/icons2/4029/PNG/512/twitter_x_new_logo_square_x_icon_256075.png" alt="Twitter Logo"></a>
+    </div>
+
+    <div class="image-section">
+      <a href="https://web.telegram.org/k/#@Sairaj_p"><img src="https://static.vecteezy.com/system/resources/previews/018/930/486/original/telegram-logo-telegram-icon-transparent-free-png.png" alt="Telegram Logo"></a>
+    <br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	</div>
+  </div>
+</div>
+
+<script>
+  function scrollToBottom() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+
+  function scrollToPersonalLife() {
+    var personalLifeSection = document.getElementById('personal-life-section');
+    personalLifeSection.scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
